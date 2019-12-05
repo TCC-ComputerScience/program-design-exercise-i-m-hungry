@@ -1,57 +1,102 @@
-//Jodie Butterworth, Brandon Kidd, Michael Thompson, Matt Heckler - PACE 9
-//CSC 201
-//11-25-19
-// Edited by goup I'm Hungry / PACE #7
+// Program to store information read from business cards into a sorted linked list
+// and save out to a file.
+// Note: Uses nullptr, so need to make sure your compiler is set to use C++11
+//       In Code::Blocks this is under Settings==>Compiler
+#include <iostream>
+#include "buscard.h"
 
-Function to create a gameboard
-Pre: none
-Post: gameboard is created, probably best to use an array and convert the letter and number square ids to strings
-void Gameboard (string battleArray[][boardSize]);
+using namespace std;
 
-Function to create ships
-Pre: gameboard array ready
-Post: ship locations will be determined based on a random number. Will have to make sure that a ship stay on the board. Will have five different ship types. Structs for battleships.
-void Ships(string battleArray[][boardSize], battleship []);
+// Adds data to an existing node
+// Pre: Valid NodePtr w/ allocated memory
+// Post: NodePtr contains valid info or set to nullptr if no info
+void GetNodeInfo(NodePtr &np);
 
-Function to get user guess
-Pre: gameboard is set up and ships are in place
-Post: The computer gets the user's guess
-void UserGuess (string guess);
+// Fills in the info for a customer
+// Pre: Valid CustomerType variable
+// Post: CustomerType filled with info entered by user
+void FillCustomerInfo(CustomerType &cust);
 
-Function to change gameboard
-Pre: gameboard is set up, ships are in place and user has guessed a location
-Post: The computer compares the user's guess to the location of the ships (the values that the ships contain) and changes the gameboard and responses based on the correct answers. The gameboard should update and display to show the results (not sure if this should be the Gameboard function or a new function yet)
-bool KaBoom(string battleArray[][boardSize], string shipArray[], string guess);
+// Allocates memory and initializes nodePtr->next to NULL
+// Pre: None
+// Post: Allocated nodePtr with ->next set to NULL
+NodePtr CreateNode();
 
-int main(){
-  int ROW_MAX = 10; //Maximum row size
-  int COL_MAX =10; //Maximum Column size
-  string battleArray[ROW_MAX][COL_MAX];
-   string guess;
-   bool gameON = false;
-   while (gameON != true){
-      loop thourgh all the functions while there are still ships to find
-      KaBoom is true when all ships are found or when user decides to quit
-   }
-   return 0;
+// Inserts node into list in sorted location
+// Pre: Valid pointer for list and prefilled NodePtr
+// Post: Sorted list
+void AddNode(NodePtr &head, NodePtr np);
+
+// Prints out list
+// Pre: Valid nodeptr
+void PrintList(NodePtr np);
+
+// Save data to file
+// Pre: Valid nodeptr
+void SaveFile(NodePtr np);
+
+// Takes a string, making the first letter uppercase and remainder lowercase
+// Pre: Valid string passed as argument
+// Post: Returns a normalized string
+string NormalizeString(string str);
+
+int main()
+{
+    NodePtr headPtr = nullptr;  // Pointer to entire list (If you're getting an error on this line, read the comment at the top)
+    NodePtr newPtr = nullptr;   // Pointer for new nodes being added
+
+    // Loop until user is finished entering Business Cards
+        newPtr = CreateNode();
+        GetNodeInfo(newPtr);
+        AddNode(headPtr, newPtr);
+
+    // Save File
+    SaveFile(headPtr);
+
+    return 0;
 }
 
-void Gameboard (string battleArray[][boardSize]){
-   use 2d array to make gameboard and convert to string
+NodePtr CreateNode()
+{
+    cout << "In GetNode" << endl;
+
+    NodePtr newNode = new NodeType;
+
+    return newNode;
 }
 
-void Ships(string battleArray[][boardSize], string shipArray[]){
-   use random value for first space of ship's location
-   fill in remaining spaces in a straight line up, down or to the sides
-  save a list of different ships, array of arrays or array to structs
+void GetNodeInfo(NodePtr& np)
+{
+    cout << "In GetNodeInfo" << endl;
+
+    FillCustomerInfo(np->customer);
 }
 
-void UserGuess (string guess){
-   asks user for guess and records it in a string
+void FillCustomerInfo(CustomerType &cust){
+    cout << "In FillCustomerInfo" << endl;
+
+    // Prompt user for info
+
+    // Normalize first and last name entered
+    cust.lastName = NormalizeString(cust.lastName);
+    cust.firstName = NormalizeString(cust.firstName);
 }
 
-bool KaBoom(string battleArray[][boardSize], string shipArray[], string guess){
-   compares user guess to the ship values
-   changes the gameboard and notifies the user if its a hit or a miss
-   returns true if user quits or all the ships are found
+void AddNode(NodePtr& head, NodePtr np)
+{
+    cout << "In InsertNode" << endl;
+}
+
+void PrintList(NodePtr np)
+{
+    cout << "In PrintList" << endl;
+}
+
+void SaveFile(NodePtr np)
+{
+    cout << "In SaveFile" << endl;
+}
+
+string NormalizeString(string str){
+    cout << "In NormalizeString" << endl;
 }
