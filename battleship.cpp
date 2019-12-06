@@ -5,7 +5,6 @@
 
 #include <iostream> //added by PACE #7
 #include <string> //added by PACE #7
-#include "battleship.hpp" //added by PACE #7
 
 using namespace std;
 
