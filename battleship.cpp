@@ -3,9 +3,9 @@
 //11-25-19
 // Edited by group I'm Hungry / PACE #7
 
-#include <iostream>
-#include <string>
-#include <battleship.hpp>
+#include <iostream> //added by PACE #7
+#include <string> //added by PACE #7
+#include <battleship.hpp> //added by PACE #7
 
 // Function to create a gameboard
 // Pre: none
