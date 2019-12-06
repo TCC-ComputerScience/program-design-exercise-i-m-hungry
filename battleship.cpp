@@ -44,7 +44,7 @@ int main(){
 
     int prompt; //PACE 7 - holds the user input value
     string battleArray[BOARD_SIZE][BOARD_SIZE]; //PACE 7 replaced boardSize with constant BOARD_SIZE
-    string shipArray[BOARD_SIZE][BOARD_SIZE];
+    string shipArray[BOARD_SIZE];
     string guess;
     bool gameON = false;
 
@@ -59,7 +59,7 @@ int main(){
         Gameboard(battleArray); //check to see if the completed function works
         Ships(battleArray, shipArray);
         UserGuess (guess);
-        KaBoom(battleArray,shipArray,guess);
+        KaBoom(battleArray,shipArray ,guess);
         gameON = false; //this was added so that the functions may be tested, but does not have an infinite loop
                         //because the functions are not complete
      }
@@ -68,7 +68,7 @@ int main(){
 
 void GetCheckPrompt(int &prompt){
     cout << "Call GetCheckPrompt";
-    cout << "Would you like to play Battleship? 1 for no and 2 for yes"; //ask user if they want to start the game
+    cout << "\nWould you like to play Battleship? 1 for no and 2 for yes"; //ask user if they want to start the game
     cin >> prompt; //record response
 
     //check response
@@ -81,7 +81,7 @@ void GetCheckPrompt(int &prompt){
     }
 }
 void Gameboard (string battleArray[][BOARD_SIZE]){
-      cout << "\nCall GameBoard";
+      cout << "\nCall GameBoard\n";
       //format and fill the gameboard
       cout << "---------------------\n";
       for (int i = 0; i < BOARD_SIZE; i++){ //increments the columns in the board
