@@ -10,37 +10,37 @@
 // Function to create a gameboard
 // Pre: none
 // Post: gameboard is created, probably best to use an array and convert the letter and number square ids to strings
-void Gameboard (string battleArray[][boardSize]);
+void Gameboard (char battleArray[][boardSize]);
 
 // Function to create ships
 // Pre: gameboard array ready
 // Post: ship locations will be determined based on a random number. Will have to make sure that a ship stay on the board. Will have five different ship types. Structs for battleships.
-void Ships(string battleArray[][boardSize], battleship []);
+void Ships(char battleArray[][boardSize], battleship []);
 
 // Function to get user guess
 // Pre: gameboard is set up and ships are in place
 // Post: The computer gets the user's guess
-void UserGuess (string guess);
+void UserGuess (char guess);
 
 // Function to change gameboard
 // Pre: gameboard is set up, ships are in place and user has guessed a location
 // Post: The computer compares the user's guess to the location of the ships (the values that the ships contain) and changes the gameboard and responses based on the correct answers. The gameboard should update and display to show the results (not sure if this should be the Gameboard function or a new function yet)
-bool KaBoom(string battleArray[][boardSize], string shipArray[], string guess);
+bool KaBoom(char battleArray[][boardSize], char shipArray[], string guess);
 
 int main(){
-  int ROW_MAX = 10; //Maximum row size - original comment
-  int COL_MAX =10; //Maximum Column size - original comment
-  string battleArray[ROW_MAX][COL_MAX];
-   string guess;
-   bool gameON = false;
-   while (gameON != true){
+    int ROW_MAX = 10; //Maximum row size - original comment
+    int COL_MAX =10; //Maximum Column size - original comment
+    char battleArray[ROW_MAX][COL_MAX];
+    string guess;
+    bool gameON = false;
+    while (gameON != true){
       //loop thourgh all the functions while there are still ships to find - original comment
       //KaBoom is true when all ships are found or when user decides to quit - original comment
-   }
-   return 0;
+     }
+     return 0;
 }
 
-void Gameboard (string battleArray[][boardSize]){
+void Gameboard (char battleArray[][boardSize]){
    for (int i = 0; i < boardSize; i++){
 
 
