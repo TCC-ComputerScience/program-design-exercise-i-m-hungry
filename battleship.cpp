@@ -5,7 +5,8 @@
 
 #include <iostream> //added by PACE #7
 #include <string> //added by PACE #7
-#include <"battleship.hpp"> //added by PACE #7
+#include "battleship.hpp" //added by PACE #7
+//PACE 7 - created a header file called battleship.hpp to store struct Battleship
 
 // Function to create a gameboard
 // Pre: none
@@ -42,14 +43,17 @@ int main(){
      return 0;
 }
 
-void Gameboard (string battleArray[][boardSize]){
-   for (int i = 0; i < boardSize; i++){
-
-
-   }
+void Gameboard (string battleArray[][BOARD_SIZE]){
+      for (int i = 0; i < BOARD_SIZE; i++){
+            for ( int j = 0; j < BOARD_SIZE; j++) {
+                battleArray[i][j] = "~";
+                cout << battleArray[i][j];            
+            }
+          cout << "\n";
+      }
 }
 
-void Ships(string battleArray[][boardSize], string shipArray[]){
+void Ships(string battleArray[][BOARD_SIZE], string shipArray[]){
    //use random value for first space of ship's location - original comment
    //fill in remaining spaces in a straight line up, down or to the sides - original comment
    //save a list of different ships, array of arrays or array to structs - original comment
@@ -59,7 +63,7 @@ void UserGuess (string guess){
    //asks user for guess and records it in a string - original comment
 }
 
-bool KaBoom(string battleArray[][boardSize], string shipArray[], string guess){
+bool KaBoom(string battleArray[][BOARD_SIZE], string shipArray[], string guess){
    //compares user guess to the ship values
    //changes the gameboard and notifies the user if its a hit or a miss - original comment
    //returns true if user quits or all the ships are found - original comment
