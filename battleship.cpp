@@ -6,17 +6,21 @@
 #include <iostream> //added by PACE #7
 #include <string> //added by PACE #7
 #include "battleship.hpp" //added by PACE #7
-//PACE 7 - created a header file called battleship.hpp to store struct Battleship
+
+using namespace std;
+
+//PACE 7 - needed forward declaration so moved const outside of main
+const int BOARD_SIZE = 10; //PACE 7 - Since row and column sizes are both ten, no use in having two constants for them
 
 // Function to create a gameboard
 // Pre: none
 // Post: gameboard is created, probably best to use an array and convert the letter and number square ids to strings
-void Gameboard (string battleArray[][BOARD_SIZE]); //PACE 7 replaced boardSize with constrant BOARD_SIZE
+void Gameboard(string battleArray[][BOARD_SIZE]); //PACE 7 replaced boardSize with constant BOARD_SIZE
 
 // Function to create ships
 // Pre: gameboard array ready
 // Post: ship locations will be determined based on a random number. Will have to make sure that a ship stay on the board. Will have five different ship types. Structs for battleships.
-void Ships(string battleArray[][BOARD_SIZE], battleship []); //PACE 7 replaced boardSize with constrant BOARD_SIZE
+void Ships(string battleArray[][BOARD_SIZE], string battleship[]); //PACE 7 replaced boardSize with constant BOARD_SIZE
 
 // Function to get user guess
 // Pre: gameboard is set up and ships are in place
@@ -26,13 +30,13 @@ void UserGuess (string guess);
 // Function to change gameboard
 // Pre: gameboard is set up, ships are in place and user has guessed a location
 // Post: The computer compares the user's guess to the location of the ships (the values that the ships contain) and changes the gameboard and responses based on the correct answers. The gameboard should update and display to show the results (not sure if this should be the Gameboard function or a new function yet)
-bool KaBoom(string battleArray[][BOARD_SIZE], string shipArray[], string guess); //PACE 7 replaced boardSize with constrant BOARD_SIZE
+bool KaBoom(string battleArray[][BOARD_SIZE], string shipArray[], string guess); //PACE 7 replaced boardSize with constant BOARD_SIZE
 
 int main(){
     //int ROW_MAX = 10; //Maximum row size - original comment
     //int COL_MAX =10; //Maximum Column size - original comment
-    int BOARD_SIZE = 10; //Since row and column sizes are both ten, no use in having two constants for them
-    string battleArray[BOARD_SIZE][BOARD_SIZE]; //PACE 7 replaced boardSize with constrant BOARD_SIZE
+
+    string battleArray[BOARD_SIZE][BOARD_SIZE]; //PACE 7 replaced boardSize with constant BOARD_SIZE
     string guess;
     bool gameON = false;
     while (gameON != true){
@@ -47,7 +51,7 @@ void Gameboard (string battleArray[][BOARD_SIZE]){
       for (int i = 0; i < BOARD_SIZE; i++){
             for ( int j = 0; j < BOARD_SIZE; j++) {
                 battleArray[i][j] = "~";
-                cout << battleArray[i][j];            
+                cout << battleArray[i][j];
             }
           cout << "\n";
       }
